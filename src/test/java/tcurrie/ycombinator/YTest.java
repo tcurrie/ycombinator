@@ -62,4 +62,21 @@ public class YTest {
         validate.accept(20, "6765");
     }
 
+
+    @Test
+    public void shouldCalculateFactorial() {
+        final Function<Integer, Integer> factorial = Y.Combinator.of(
+            y -> n -> n == 0 ? 1 : n * y.apply(n - 1)
+        );
+
+        final BiConsumer<Integer, Integer> validate = (index, expected)->assertThat(factorial.apply(index), is(expected));
+        validate.accept(0, 1);
+        validate.accept(1, 1);
+        validate.accept(2, 2);
+        validate.accept(3, 6);
+        validate.accept(4, 24);
+        validate.accept(5, 120);
+        validate.accept(6, 720);
+    }
+
 }
