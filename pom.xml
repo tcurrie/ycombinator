@@ -8,6 +8,34 @@
     <artifactId>ycombinator</artifactId>
     <version>1.0.1-SNAPSHOT</version>
 
+    <inceptionYear>2018</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Todd Currie</name>
+            <email>toddrcurrie@gmail.com</email>
+            <roles>
+                <role>Maintainer</role>
+                <role>Developer</role>
+            </roles>
+            <timezone>-8</timezone>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/tcurrie/ycombinator.git</connection>
+        <developerConnection>scm:git:git@github.com:tcurrie/ycombinator.git</developerConnection>
+        <url>https://github.com/tcurrie/ycombinator</url>
+    </scm>
+
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
