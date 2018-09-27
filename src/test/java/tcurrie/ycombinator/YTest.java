@@ -4,13 +4,28 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.math.BigInteger;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 
+import org.hamcrest.Matchers;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class YTest {
+    @Rule public ExpectedException thrown = ExpectedException.none();
+
+    @Test
+    public void shouldNotCreate() throws IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
+        thrown.expect(InvocationTargetException.class);
+        thrown.expectCause(Matchers.isA(UnsupportedOperationException.class));
+        final Constructor c = Y.Combinator.class.getDeclaredConstructor();
+        c.setAccessible(true);
+        c.newInstance();
+    }
 
     @Test
     public void shouldReturnNullFromEndPoint() {

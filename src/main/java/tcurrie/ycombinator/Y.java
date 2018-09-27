@@ -4,6 +4,10 @@ import java.util.function.Function;
 
 public interface Y<U, V> extends Function<U, V> {
     class Combinator {
+        private Combinator() {
+            throw new UnsupportedOperationException("Do not create.");
+        }
+
         public static <U, V> Y<U, V> of(final Y<Y<U, V>, Y<U, V>> r) {
             final T<U, V> uvt = t -> t.apply(t);
             return uvt.apply(t -> r.apply(v -> t.apply(t).apply(v)));
